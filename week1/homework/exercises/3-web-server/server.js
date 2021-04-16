@@ -2,7 +2,7 @@
  * Exercise 3: Create an HTTP web server
  */
 
-var http = require('http');
+const http = require('http');
 const fs = require('fs');
 //create a server
 let server = http.createServer(function (req, res) {
@@ -19,6 +19,12 @@ let server = http.createServer(function (req, res) {
   if (req.url === '/style.css') {
     const cont = fs.readFileSync('./style.css', 'utf8');
     res.setHeader('Content-Type', 'text/css');
+    res.write(cont);
+  } else {
+    const cont = "This file doesn't exist!";
+    //res.writeHead(404, { 'Content-Type': 'text/html' });
+    //res.status(404);
+    res.statusCode = 404;
     res.write(cont);
   }
 
