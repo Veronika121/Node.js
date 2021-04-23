@@ -24,7 +24,5 @@ app.post('/weather', (req, res) => {
       });
     })
     .catch((err) => res.render('index', { weatherText: 'City is not found!' }));
-  //console.log(apiResult);
-  //res.send(req.body.cityName);
 });
 app.listen(3000);
