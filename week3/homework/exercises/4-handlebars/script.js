@@ -8,6 +8,7 @@
  * Hints:
  * - Check the handlebars npm page for examples and documentation
  */
+const handlebars = require('handlebars');
 const subjects = [
   'shark',
   'popcorn',
@@ -27,22 +28,20 @@ const punchlines = [
   'achieve world piece',
   'help people learn programing',
 ];
+function getRandomElement(array) {
+  const i = Math.floor(Math.random() * array.length);
+  return array[i];
+}
 
+const card = '{{subject}} is great to {{punchline}}';
+const template = handlebars.compile(card);
 function drawCard() {
-  const handlebars = require('handlebars');
   const cardData = {
     subject: getRandomElement(subjects),
     punchline: getRandomElement(punchlines),
   };
-  const card = '{{subject}} is great to {{punchline}}';
-  const template = handlebars.compile(card);
   const result = template(cardData);
   console.log(result);
 }
 
 drawCard();
-
-function getRandomElement(array) {
-  const i = Math.floor(Math.random() * array.length);
-  return array[i];
-}

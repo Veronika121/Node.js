@@ -11,9 +11,9 @@
  *
  */
 
+const fetch = require('node-fetch');
 async function printChuckNorrisJoke() {
   try {
-    const fetch = require('node-fetch');
     const fetchResponse = await fetch('http://api.icndb.com/jokes/random');
     const objWithJoke = await fetchResponse.json();
     const joke = objWithJoke.value.joke;

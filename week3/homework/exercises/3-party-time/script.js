@@ -7,10 +7,9 @@
  * Hints:
  * - make sure to use the correct headers and http method in the request
  */
-
+const fetch = require('node-fetch');
 async function makeReservation() {
   try {
-    const fetch = require('node-fetch');
     const myBody = { name: 'Veronika', numberOfPeople: 3 };
     const fetchResponse = await fetch(
       'https://reservation100-sandbox.mxapps.io/api/reservations',

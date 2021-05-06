@@ -7,9 +7,9 @@
  * Hints:
  * - for basic authentication the username and password need to be base64 encoded
  */
+const fetch = require('node-fetch');
 async function printBooks() {
   try {
-    const fetch = require('node-fetch');
     const fetchResponse = await fetch(
       'https://restapiabasicauthe-sandbox.mxapps.io/api/books',
       {
